@@ -1,0 +1,28 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Amazon.co.jp book",
+	"behavior": "create",
+	"noteContentFormat": "{{selector:#landingImage?src|image}}\n\n",
+	"properties": [
+		{
+			"name": "author",
+			"value": "{{selector:#bylineInfo .author a}}",
+			"type": "multitext"
+		},
+		{
+			"name": "title",
+			"value": "{{selector:#productTitle}}",
+			"type": "text"
+		},
+		{
+			"name": "description",
+			"value": "{{selector:#bookDescription_feature_div>.a-expander-collapsed-height>.a-expander-content|Markdown}}",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://www.amazon.co.jp"
+	],
+	"noteNameFormat": "{{selector:#productTitle}} - {{selector:#bylineInfo .author a}}",
+	"path": "0-inbox"
+}
